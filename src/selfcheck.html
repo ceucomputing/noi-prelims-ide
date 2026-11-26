@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="%CSP%" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NOI Prelims IDE self-check</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        font:
+          15px system-ui,
+          sans-serif;
+      }
+      body {
+        margin: 0 auto;
+        max-width: 900px;
+        padding: 16px;
+      }
+      h1 {
+        font-size: 20px;
+        margin: 0 0 4px;
+      }
+      #summary {
+        font-size: 22px;
+        font-weight: 600;
+        margin: 12px 0;
+        padding: 12px;
+        border-radius: 6px;
+        background: #8882;
+      }
+      #summary.pass {
+        background: #2a73;
+      }
+      #summary.fail {
+        background: #d334;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      td {
+        padding: 4px 8px;
+        border-bottom: 1px solid #8884;
+        vertical-align: top;
+      }
+      td:first-child {
+        width: 2em;
+        text-align: center;
+        font-weight: 700;
+      }
+      td:nth-child(2) {
+        white-space: nowrap;
+      }
+      td:last-child {
+        font:
+          13px ui-monospace,
+          Consolas,
+          monospace;
+        word-break: break-word;
+      }
+      .ok {
+        color: #2a7;
+      }
+      .bad {
+        color: #d33;
+      }
+      .warn {
+        color: #c80;
+      }
+      textarea {
+        width: 100%;
+        height: 10em;
+        font:
+          12px ui-monospace,
+          Consolas,
+          monospace;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>NOI Prelims IDE self-check</h1>
+    <div>
+      Build
+      <code>%BUILD%</code>
+      ·
+      <a href="./">Open IDE</a>
+    </div>
+    <p>
+      Run on the contest computer, under the lockdown account, in Chrome and Edge (about a minute).
+      Send the report below to the IDE team.
+    </p>
+    <div id="summary">Running…</div>
+    <table>
+      <tbody id="rows"></tbody>
+    </table>
+    <p>
+      <button id="again">Run again</button>
+      <button id="copy">Copy report</button>
+    </p>
+    <textarea id="report" readonly aria-label="Report"></textarea>
+    <script type="module" src="b/%BUILD%/selfcheck.js"></script>
+  </body>
+</html>

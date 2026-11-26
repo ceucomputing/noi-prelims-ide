@@ -1,0 +1,10 @@
+{
+  "title": "NOI 2026 Prelim, Task 5: Mushroom Ring",
+  "about": "Make at most k edits to the signs so that as many (start, destination) pairs as possible are reachable.",
+  "limit": 2.5,
+  "statementPage": 17,
+  "solutions": {
+    "cpp": "ring/solutions/model/ac_ufdsLog_opt.cpp"
+  },
+  "tests": "ring/tests/"
+}

@@ -1,0 +1,66 @@
+# Builds the IDE and publishes it on GitHub Pages, on every push to main.
+#
+# The site includes the demo only if the repository variable INCLUDE_DEMO is set to true (Settings, then
+# Secrets and variables, then Actions, then Variables). The demo serves the organisers' tests and solutions,
+# so check with them before turning it on.
+name: Publish to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install packages
+        run: npm ci
+
+      - name: Check the code
+        run: npm run check
+
+      - name: Download the C++ standard library and the Python 3.8 checker
+        run: |
+          mkdir -p downloads
+          curl --fail --location --output downloads/wasi-sysroot-34.0.tar.gz \
+            https://github.com/WebAssembly/wasi-sdk/releases/download/wasi-sdk-34/wasi-sysroot-34.0.tar.gz
+          python3 -m pip download vermin==1.9.2 --no-deps --dest downloads
+
+      - name: Build
+        run: |
+          if [ "${{ vars.INCLUDE_DEMO }}" = "true" ]; then
+            npm run build:demo
+          else
+            npm run build
+          fi
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

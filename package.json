@@ -1,0 +1,32 @@
+{
+  "name": "noi-prelims-ide-poc",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "build:demo": "node demo/fetch.mjs && node build.mjs --demo",
+    "serve": "node serve.mjs",
+    "judge:demo": "sh demo/judge-check.sh",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "check": "prettier --check . && eslint ."
+  },
+  "dependencies": {
+    "@bjorn3/browser_wasi_shim": "0.4.2",
+    "@codemirror/lang-cpp": "6.0.3",
+    "@codemirror/lang-python": "6.2.1",
+    "@codemirror/lint": "6.9.8",
+    "@yowasp/clang": "22.0.0-git20695-13",
+    "binaryen": "132.0.0",
+    "codemirror": "6.0.2",
+    "pyodide": "314.0.8"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "esbuild": "0.28.2",
+    "eslint": "10.15.0",
+    "eslint-plugin-jsdoc": "65.5.5",
+    "globals": "17.14.0",
+    "prettier": "3.10.1"
+  }
+}

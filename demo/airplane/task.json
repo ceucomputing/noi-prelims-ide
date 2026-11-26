@@ -1,0 +1,10 @@
+{
+  "title": "NOI 2026 Prelim, Task 3: Airplane 2",
+  "about": "Seat k passengers in their preferred columns so that the smallest Manhattan distance between seats is as large as possible.",
+  "limit": 1.0,
+  "statementPage": 9,
+  "solutions": {
+    "cpp": "airplane/solutions/model/full_pan.cpp"
+  },
+  "tests": "airplane/tests/"
+}

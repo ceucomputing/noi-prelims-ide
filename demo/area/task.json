@@ -1,0 +1,10 @@
+{
+  "title": "NOI 2026 Prelim, Task 1: Area 2",
+  "about": "Choose two of n pairs of sticks to make a rectangle with the largest area.",
+  "limit": 1.0,
+  "statementPage": 2,
+  "solutions": {
+    "cpp": "area/solutions/model/bruteForceSol.cpp"
+  },
+  "tests": "area/tests/"
+}

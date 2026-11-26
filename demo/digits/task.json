@@ -1,0 +1,10 @@
+{
+  "title": "NOI 2026 Prelim, Task 4: Digits",
+  "about": "Find the cheapest way to turn each of n numbers into x.\nThe model solution needs GNU pb_ds, which the IDE does not have yet, so this is the organisers' other correct solution.",
+  "limit": 1.0,
+  "statementPage": 13,
+  "solutions": {
+    "cpp": "digits/solutions/correct/dp.cpp"
+  },
+  "tests": "digits/tests/"
+}

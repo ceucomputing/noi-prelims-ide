@@ -1,0 +1,11 @@
+{
+  "title": "NOI 2026 Prelim, Task 2: Hungry Cats",
+  "about": "Decide whether the cats can eat each other until one is left. This task also has a Python solution: select Python 3 to see it.",
+  "limit": 1.0,
+  "statementPage": 5,
+  "solutions": {
+    "cpp": "hungrycats/solutions/model/samplesol.cpp",
+    "py": "hungrycats/solutions/correct/ac2.py"
+  },
+  "tests": "hungrycats/tests/"
+}

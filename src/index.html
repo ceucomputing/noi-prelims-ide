@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="%CSP%" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NOI Prelims IDE</title>
+    <link rel="stylesheet" href="b/%BUILD%/style.css" />
+  </head>
+  <body data-import="%IMPORT%">
+    <header>
+      <b>NOI Prelims IDE</b>
+      <nav id="tabs" aria-label="Tabs"></nav>
+      <select id="lang" aria-label="Language">
+        <option value="cpp">C++17</option>
+        <option value="py">Python 3</option>
+      </select>
+      <label for="limit">Time limit (s)</label>
+      <input id="limit" type="number" min="0.5" max="10" step="0.5" />
+      <button id="run" title="Run tests (Ctrl+Enter)">Run tests</button>
+      <button id="save" title="Download (Ctrl+S)">Download</button>
+      <button id="copy">Copy</button>
+      <span id="status">Loading…</span>
+    </header>
+    <main>
+      <div id="editor"></div>
+      <section id="side">
+        <div id="about" hidden>
+          <b id="about-title"></b>
+          ·
+          <a id="about-statement" target="_blank">Statement (PDF)</a>
+          <p id="about-text"></p>
+          <p class="note">
+            Tests and solutions from:
+            <a id="about-source" target="_blank" rel="noreferrer"></a>
+          </p>
+        </div>
+        <pre id="compile" hidden></pre>
+        <div id="tests"></div>
+        <p><button id="add">+ Test case</button></p>
+        <p class="note">
+          Verdicts, times and memory are estimates. Submit through CMS. Work is kept until this tab
+          closes. %DEMO_LINK%
+          <a href="selfcheck.html">Self-check</a>
+          · build %BUILD%
+        </p>
+      </section>
+    </main>
+    <template id="test">
+      <details class="test">
+        <summary>
+          <b class="name"></b>
+          <span class="verdict"></span>
+          <button class="del" aria-label="Delete test case">×</button>
+        </summary>
+        <div class="body">
+          <label>
+            Input
+            <button class="load-input" type="button">Load file</button>
+            <textarea class="in" spellcheck="false"></textarea>
+          </label>
+          <label>
+            Expected output
+            <button class="load-expected" type="button">Load file</button>
+            <textarea class="exp" spellcheck="false" placeholder="(optional)"></textarea>
+          </label>
+          <label>
+            Output
+            <pre class="out"></pre>
+          </label>
+          <label class="errwrap" hidden>
+            stderr
+            <pre class="err"></pre>
+          </label>
+        </div>
+      </details>
+    </template>
+    <script type="module" src="b/%BUILD%/ide.js"></script>
+  </body>
+</html>
